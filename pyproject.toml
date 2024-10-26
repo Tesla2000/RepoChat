@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "project_chat"
+version = "0.1.0"
+description = "Project that allows user to ask questions about the project"
+authors = ["Tesla2000 <fratajczak124@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pre-commit = "^3.7.1"
+dynamic-executor = "^1.2.6"
+python-dotenv = "^1.0.1"
+pydantic = "^2.8.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+project_chat = "project_chat:main"
