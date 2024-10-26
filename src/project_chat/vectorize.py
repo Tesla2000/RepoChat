@@ -11,6 +11,13 @@ from src.project_chat.config import Config
 
 
 def vectorize(config: Config) -> Chroma:
+    """
+    Vectorizes Python source code files from a specified repository path and
+    returns a Chroma object containing the embedded documents.
+    :param config: Configuration object containing the repository path and
+    persistence settings.
+    :return: A Chroma object with embedded documents.
+    """
     loader = GenericLoader.from_filesystem(
         path=config.repo_path,
         glob="**/*",

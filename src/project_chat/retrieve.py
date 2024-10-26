@@ -14,6 +14,13 @@ from src.project_chat.config import Config
 
 
 def retrieve(db: Chroma, config: Config) -> BaseConversationalRetrievalChain:
+    """
+    Retrieves a conversational retrieval chain using a specified database and
+    configuration settings.
+    :param config: Configuration settings for the language model.
+    :param db: The database instance used for retrieval.
+    :return: A conversational retrieval chain instance.
+    """
     retriever = db.as_retriever(
         search_type="mmr",
         search_kwargs={"k": 8},
