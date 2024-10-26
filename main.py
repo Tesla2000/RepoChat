@@ -1,7 +1,10 @@
 from __future__ import annotations
 
-from src.ProjectChat.config import parse_arguments, Config, \
-    create_config_with_args
+from src.project_chat.config import Config
+from src.project_chat.config import create_config_with_args
+from src.project_chat.config import parse_arguments
+from src.project_chat.retrieve import retrieve
+from src.project_chat.vectorize import vectorize
 
 
 def main():
@@ -13,7 +16,9 @@ def main():
     """
     args = parse_arguments(Config)
     config = create_config_with_args(Config, args)
-    print(config)
+    db = vectorize(config)
+    qa = retrieve(db, config)
+    print(qa.invoke({"role": "user", "content": config.question})["answer"])
 
 
 if __name__ == "__main__":

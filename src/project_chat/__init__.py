@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 def import_python(root: Path):
-    for module_path in root.iterdir():
+    for module_path in root.glob("*.py"):
         if module_path.name in ("__init__.py", "pycache", "__pycache__"):
             continue
         if module_path.is_file():
